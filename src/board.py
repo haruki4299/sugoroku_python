@@ -1,4 +1,4 @@
-from square import Square
+from src.square import Square
 
 class Board:
     def __init__(self):
