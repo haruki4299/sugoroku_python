@@ -12,3 +12,9 @@ class Board:
         # The first and last square should not be a special one.
         if 1 < location < self.goal:
             self.squares[location] = square
+    
+    def is_special_square(self, location: int) -> bool:
+        return location in self.squares        
+
+    def get_special_square(self, location: int) -> Square:
+        return self.squares[location]
