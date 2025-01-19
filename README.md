@@ -1,2 +1,3 @@
-# sugoroku_python
-Random Sugoroku Game in Python with Graphics.
+# Sugoroku Game
+
+Sugoroku Board Game in Python with Graphics. Focus on good software enginnering techniques.
