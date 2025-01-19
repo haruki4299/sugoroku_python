@@ -9,5 +9,6 @@ class Board:
         self.squares = {}
         
     def add_special_square(self, location: int, square: Square) -> None:
-        if 1 <= location <= self.goal:
+        # The first and last square should not be a special one.
+        if 1 < location < self.goal:
             self.squares[location] = square
