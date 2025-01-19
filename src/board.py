@@ -1,4 +1,4 @@
 class Board:
-    def __init__(self, length):
+    def __init__(self):
         self.squares = []
-        self.goal = length
+        self.goal = 100
