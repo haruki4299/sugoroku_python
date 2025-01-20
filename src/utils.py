@@ -3,7 +3,7 @@ def ask_for_player_name() -> str:
     name = input()
     return name
     
-def ask_if_add_another_player() -> bool:
+def will_add_another_player() -> bool:
     while True:
         print("Would you like to add another player? (Y/N): ", end="")
         response = input()
