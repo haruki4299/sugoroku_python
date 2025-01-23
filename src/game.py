@@ -1,3 +1,6 @@
+from pathlib import Path
+
+from src.square import Square
 from src.board import Board
 from src.player import Player
 import src.utils as utils
@@ -18,6 +21,35 @@ class Game:
             self.add_player(new_player)
             if not utils.will_add_another_player():
                 break
+            
+    def set_up_board_squares(self) -> None:
+        PROJECT_ROOT = Path(__file__).resolve().parent.parent
+        INPUT_FILES_DIR = PROJECT_ROOT / "input_files"
+        input_file_path = INPUT_FILES_DIR / "board1.txt"
+        
+        squares_info = utils.read_square_input_file(input_file_path)
+        
+        self.load_board_squares(squares_info)
+        
+    def load_board_squares(self, square_information: list[str]) -> None:
+        for square in square_information:
+            square_information_array = list(map(int, square.split()))
+            self.read_and_load_square_information(square_information_array)
+        
+        print(self.board.squares)
+            
+    def read_and_load_square_information(self, square_array: list[int]) -> bool:
+        square_location = square_array[0]
+        extra_movement = square_array[1]
+        rest_inflicted = square_array[2]
+        warp_location = square_array[3]
+        
+        new_square = Square()
+        new_square.set_amount_extra_move_by_square(extra_movement)
+        new_square.set_amount_rest_inflicted_by_square(rest_inflicted)
+        new_square.set_warp_location(warp_location)
+        
+        return self.board.add_special_square(square_location, new_square)
         
     # def get_player(self) -> Player:
     #     return self.players[self.current_player]

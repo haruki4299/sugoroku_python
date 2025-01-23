@@ -8,10 +8,14 @@ class Board:
         # If the square has no effect it will not be in the map.
         self.squares = {}
         
-    def add_special_square(self, location: int, square: Square) -> None:
+    def add_special_square(self, location: int, square: Square) -> bool:
         # The first and last square should not be a special one.
         if 1 < location < self.goal:
             self.squares[location] = square
+            return True
+        else:
+            # Invalid Location for a Square
+            return False
     
     def is_special_square(self, location: int) -> bool:
         return location in self.squares        
