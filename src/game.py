@@ -35,8 +35,6 @@ class Game:
         for square in square_information:
             square_information_array = list(map(int, square.split()))
             self.read_and_load_square_information(square_information_array)
-        
-        print(self.board.squares)
             
     def read_and_load_square_information(self, square_array: list[int]) -> bool:
         square_location = square_array[0]
